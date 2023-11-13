@@ -1,0 +1,194 @@
+﻿/*@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+*//* Reset CSS cho thẻ body */
+body {
+    font-family: Arial;
+    font-size: 14px;
+}
+
+/* Clear float để ngăn chặn các phần tử bên dưới float */
+.clearfix {
+    clear: both;
+}
+
+/* Ẩn đi dấu chấm liệt kê của thẻ li trong danh sách */
+ul li {
+    list-style: none;
+}
+
+/* Thiết lập kiểu float và chiều cao cho logo */
+#logo {
+    float: left;
+    height: 100px;
+}
+
+    /* Thiết lập chiều cao của hình ảnh logo để điều chỉnh về chiều cao của div chứa nó */
+    #logo img {
+        height: 100%;
+        width: auto;
+    }
+
+/* Thiết lập kiểu float và hiển thị các mục menu trên cùng một hàng */
+ul#main_menu li {
+    display: inline-block;
+    float: left;
+}
+
+    /* Thiết lập padding, màu chữ và style cho các liên kết trong menu chính */
+    ul#main_menu li a {
+        padding: 10px 15px;
+        text-decoration: none;
+        color: #000;
+    }
+
+/* Import font từ Google Fonts và cài đặt kiểu chữ cho toàn bộ trang */
+
+body {
+    font-family: Open Sans, sans-serif;
+    font-size: 14px;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* Thiết lập chiều rộng tối đa và margin cho phần wrapper của trang web */
+#wraper {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+/* Thiết lập style cho phần headline */
+.headline {
+    text-align: center;
+    margin: 40px 0px;
+}
+
+/* Thiết lập style cho tiêu đề h3 */
+h3 {
+    font-size: 18px;
+    color: #000;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: 1px solid #bebebe;
+    display: inline-block;
+    font-weight: 600;
+}
+
+/* Thiết lập style cho danh sách sản phẩm */
+ul.products {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+    /* Thiết lập style cho từng sản phẩm */
+    ul.products li {
+        flex-basis: 25%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+    }
+
+    /* Thiết lập style cho hình ảnh sản phẩm */
+    ul.products img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Thiết lập style cho phần top của sản phẩm */
+    ul.products li .product-top {
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Thiết lập style cho hình ảnh khi hover */
+    ul.products li:hover .product-top .product-thumb img {
+        filter: opacity()
+    }
+
+    /* Thiết lập style cho nút "Mua Ngay" */
+    ul.products li .product-top a.buy-now {
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+        background-color: #446084;
+        color: #fff;
+        padding: 10px 0px;
+        position: absolute;
+        bottom: -36%;
+        width: 100%;
+        transition: 0.25s ease-in-out;
+        opacity: 0.85;
+    }
+
+    /* Hiển thị nút "Mua Ngay" khi hover */
+    ul.products li:hover a.buy-now {
+        bottom: 0px;
+    }
+
+    /* Thiết lập style cho thông tin sản phẩm */
+    ul.products li .product-infor {
+        padding: 10px 0px;
+    }
+
+        /* Thiết lập style cho danh mục sản phẩm */
+        ul.products li .product-infor cat {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #bebebe;
+            padding: 3px 0px;
+        }
+
+        /* Thiết lập style cho tên sản phẩm */
+        ul.products li .product-infor a.product-name {
+            color: #334862;
+            padding: 3px 0px;
+        }
+
+        /* Thiết lập style cho giá sản phẩm */
+        ul.products li .product-infor product-price {
+            color: #111;
+            padding: 2px 0px;
+            font-weight: 600;
+        }
+        /*Thiết lập nút thêm vào giỏ*/
+    ul.products li .product-info product-button{
+        margin-top: 12px;
+        height: 30px;
+        padding:0 12px;
+        cursor:pointer;
+        border: none;
+        border-radius: 5px;
+        transition: all 0,3s ease;
+    }
+    ul.products li .product-info product-button:hover{
+        background-color: #f77820
+    }
+    /* giỏ hàng*/
+  .cart {
+      width: 50%;
+      margin:auto;
+      text-align:center;
+      padding: 30px;
+  }
+  .cart h2{
+      margin-bottom: 20px;
+
+  }
+  .cart table{
+      width: 100%;
+  }
+  .cart table thead tr th:first-child{
+      text-align: left;
+  }
+    .cart table tr td{
+        border-bottom: 1px solid #ddd;
+        padding: 12px;
+    }
+    .cart table thead tr th:last-child{
+        text-align:right;
+    }
+    .cart table tbody tr td:last-child{
+        text-align:right;
+    }

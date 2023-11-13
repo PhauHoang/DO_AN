@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2D085DA9-314B-47E6-9B41-5F881498EAAB}</ProjectGuid>
+    <ProjectGuid>{B22D0A66-9B62-4816-9F39-A4AD3BE27781}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DO_AN</RootNamespace>
-    <AssemblyName>DO_AN</AssemblyName>
+    <RootNamespace>webbanhang</RootNamespace>
+    <AssemblyName>webbanhang</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44391</IISExpressSSLPort>
+    <IISExpressSSLPort>44389</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -67,19 +67,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DOAN.css" />
-    <Content Include="Global.asax" />
-    <Content Include="HtmlDOAN.html" />
-    <Content Include="..\..\..\..\NET\index.html">
-      <Link>index.html</Link>
-    </Content>
-    <Content Include="JSDOAN.js" />
+    <Content Include="api.aspx" />
+    <Content Include="Asset\bootstrap.bundle.min.js" />
+    <Content Include="Asset\bootstrap.min.css" />
+    <Content Include="Asset\jquery-confirm.min.css" />
+    <Content Include="Asset\jquery-confirm.min.js" />
+    <Content Include="Asset\jquery-ui.min.css" />
+    <Content Include="Asset\jquery-ui.min.js" />
+    <Content Include="Asset\jquery.min.js" />
+    <Content Include="Asset\toastr.min.css" />
+    <Content Include="Asset\toastr.min.js" />
+    <Content Include="Asset\z-cookie.js" />
+    <Content Include="Asset\z-shower.js" />
+    <Content Include="Asset\z-shower.min.js" />
+    <Content Include="Asset\z-style.css" />
+    <Content Include="Asset\zz.js" />
+    <Content Include="img\aokhoacnam.jpg" />
+    <Content Include="img\aophaonam.jpg" />
+    <Content Include="img\aopolonam.jpg" />
+    <Content Include="img\aopolonu.jpg" />
+    <Content Include="img\aotreem.jpg" />
+    <Content Include="img\bothethaonam.jpg" />
+    <Content Include="img\logo.jpg" />
+    <Content Include="img\quanaunam.jpg" />
+    <Content Include="img\quanthethaonu.jpg" />
+    <Content Include="index.html" />
+    <Content Include="mycode.js" />
+    <Content Include="mystyle.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
+    <Compile Include="api.aspx.cs">
+      <DependentUpon>api.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="api.aspx.designer.cs">
+      <DependentUpon>api.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Asset\AppSettingsGet.cs" />
+    <Compile Include="Asset\LibDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,8 +118,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -108,9 +133,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51665</DevelopmentServerPort>
+          <DevelopmentServerPort>50593</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44391/</IISUrl>
+          <IISUrl>https://localhost:44389/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

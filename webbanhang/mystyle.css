@@ -1,80 +1,49 @@
-﻿/*@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
-*//* Reset CSS cho thẻ body */
-body {
-    font-family: Arial;
-    font-size: 14px;
-}
-
-/* Clear float để ngăn chặn các phần tử bên dưới float */
-.clearfix {
-    clear: both;
-}
-
-/* Ẩn đi dấu chấm liệt kê của thẻ li trong danh sách */
-ul li {
-    list-style: none;
+﻿/*--------------------------------------------------------------------- Header styles-------------------------------------------------------------- */
+.header {
+    background-color: #FF99FF; /* Màu nền */
+    color: #fff; /* Màu chữ */
+    padding: 10px; /* Khoảng cách giữa nội dung và khung */
+    display: flex; /* Hiển thị các phần tử trong một hàng ngang */
+    justify-content: space-between; /* Căn chỉnh nội dung theo cả hai bên */
+    align-items: center; /* Căn chỉnh theo chiều dọc giữa các phần tử con */
+    margin-bottom: 5px; /* Khoảng cách giữa header và body */
 }
 
 /* Thiết lập kiểu float và chiều cao cho logo */
 #logo {
     float: left;
     height: 100px;
+    padding-left: 20px;
 }
 
-    /* Thiết lập chiều cao của hình ảnh logo để điều chỉnh về chiều cao của div chứa nó */
-    #logo img {
-        height: 100%;
-        width: auto;
-    }
+/* Thiết lập chiều cao của hình ảnh logo để điều chỉnh về chiều cao của div chứa nó */
+#logo img {
+    height: 100%;
+    width: auto;
+}
 
-/* Thiết lập kiểu float và hiển thị các mục menu trên cùng một hàng */
-ul#main_menu li {
-    display: inline-block;
+/* .topnav {
+    overflow: hidden;
+} */
+
+.topnav a {
     float: left;
-}
-
-    /* Thiết lập padding, màu chữ và style cho các liên kết trong menu chính */
-    ul#main_menu li a {
-        padding: 10px 15px;
-        text-decoration: none;
-        color: #000;
-    }
-
-/* Import font từ Google Fonts và cài đặt kiểu chữ cho toàn bộ trang */
-
-body {
-    font-family: Open Sans, sans-serif;
-    font-size: 14px;
-    color: #000;
-    line-height: 1.5;
-}
-
-/* Thiết lập chiều rộng tối đa và margin cho phần wrapper của trang web */
-#wraper {
-    max-width: 1170px;
-    margin: 0 auto;
-}
-
-/* Thiết lập style cho phần headline */
-.headline {
+    display: block;
+    color: #fff;
     text-align: center;
-    margin: 40px 0px;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-right: 1.5px; /* Khoảng cách 2cm giữa các mục */
 }
 
-/* Thiết lập style cho tiêu đề h3 */
-h3 {
-    font-size: 18px;
-    color: #000;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    border: 1px solid #bebebe;
-    display: inline-block;
-    font-weight: 600;
+.topnav i {
+    margin-left: 1.5px; /* Khoảng cách 10px giữa văn bản và biểu tượng */
 }
 
-/* Thiết lập style cho danh sách sản phẩm */
+/* CSS cho phần body */
 ul.products {
     list-style: none;
+    text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -125,7 +94,7 @@ ul.products {
     /* Hiển thị nút "Mua Ngay" khi hover */
     ul.products li:hover a.buy-now {
         bottom: 0px;
-    }
+    }0
 
     /* Thiết lập style cho thông tin sản phẩm */
     ul.products li .product-infor {
@@ -133,62 +102,85 @@ ul.products {
     }
 
         /* Thiết lập style cho danh mục sản phẩm */
-        ul.products li .product-infor cat {
+        ul.products li .product-infor .cat {
             font-size: 11px;
             text-transform: uppercase;
             color: #bebebe;
             padding: 3px 0px;
         }
-
         /* Thiết lập style cho tên sản phẩm */
         ul.products li .product-infor a.product-name {
             color: #334862;
             padding: 3px 0px;
+            text-decoration: none; /* Bỏ gạch chân */
+            text-transform: uppercase; /* Viết in hoa */
         }
 
         /* Thiết lập style cho giá sản phẩm */
-        ul.products li .product-infor product-price {
+        ul.products li .product-infor .product-price {
             color: #111;
             padding: 2px 0px;
             font-weight: 600;
         }
-        /*Thiết lập nút thêm vào giỏ*/
-    ul.products li .product-info product-button{
-        margin-top: 12px;
-        height: 30px;
-        padding:0 12px;
-        cursor:pointer;
-        border: none;
-        border-radius: 5px;
-        transition: all 0,3s ease;
-    }
-    ul.products li .product-info product-button:hover{
-        background-color: #f77820
-    }
-    /* giỏ hàng*/
-  .cart {
-      width: 50%;
-      margin:auto;
-      text-align:center;
-      padding: 30px;
-  }
-  .cart h2{
-      margin-bottom: 20px;
 
-  }
-  .cart table{
-      width: 100%;
-  }
-  .cart table thead tr th:first-child{
-      text-align: left;
-  }
-    .cart table tr td{
-        border-bottom: 1px solid #ddd;
-        padding: 12px;
+        /* NÚT thêm giỏ hàng */
+        /*ul.products li .product-infor{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff6a00;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }*/
+
+        /* Căn giữa nút thêm vào giỏ hàng */
+        ul.products li .product-infor .muahang {
+            margin: 0 auto;
+        }
+
+            /* Hiệu ứng hover */
+        ul.products li .product-infor .muahang:hover {
+            background-color: #45a049;
+        }
+.muahang {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f6eaaa;
+    color: #111;
+    text-align: center;
+    text-decoration: none;
+    font-size: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 auto;
+    border: none; /* Bỏ khung viền */
+    border-radius: 8px; /* Đặt giá trị này tùy thuộc vào mức độ bo tròn mong muốn */
+}
+
+    .muahang:hover {
+        background-color: #f3b91a;
     }
-    .cart table thead tr th:last-child{
-        text-align:right;
-    }
-    .cart table tbody tr td:last-child{
-        text-align:right;
+
+        /*footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;*/ /* Chiều cao 100% của viewport */
+        /*}*/
+
+        .icon {
+    text-align: center;
+}
+#nutGioHang {
+    background: #fca85d;
+    transform: scale(1);
+    transition: transform 0.3s ease; /* Hiệu ứng chuyển động trong 0.3 giây với hiệu ứng "ease" */
+}
+
+    #nutGioHang:hover {
+        transform: scale(0.8);
     }

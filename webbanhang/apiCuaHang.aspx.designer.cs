@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace webbanhang
+namespace WebBanHang
 {
 
 

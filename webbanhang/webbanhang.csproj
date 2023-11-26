@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="api.aspx" />
+    <Content Include="apiCuaHang.aspx" />
     <Content Include="Asset\bootstrap.bundle.min.js" />
     <Content Include="Asset\bootstrap.min.css" />
     <Content Include="Asset\jquery-confirm.min.css" />
@@ -89,6 +89,7 @@
     <Content Include="img\aotreem.jpg" />
     <Content Include="img\bothethaonam.jpg" />
     <Content Include="img\logo.jpg" />
+    <Content Include="img\logook.png" />
     <Content Include="img\quanaunam.jpg" />
     <Content Include="img\quanthethaonu.jpg" />
     <Content Include="index.html" />
@@ -97,12 +98,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="api.aspx.cs">
-      <DependentUpon>api.aspx</DependentUpon>
+    <Compile Include="apiCuaHang.aspx.cs">
+      <DependentUpon>apiCuaHang.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="api.aspx.designer.cs">
-      <DependentUpon>api.aspx</DependentUpon>
+    <Compile Include="apiCuaHang.aspx.designer.cs">
+      <DependentUpon>apiCuaHang.aspx</DependentUpon>
     </Compile>
     <Compile Include="Asset\AppSettingsGet.cs" />
     <Compile Include="Asset\LibDB.cs" />

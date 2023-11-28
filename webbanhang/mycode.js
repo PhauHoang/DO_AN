@@ -123,7 +123,7 @@
                 <td>${cty.MAKH}</td>
                 <td>${cty.TENKH}</td>
                 <td>${cty.DIACHI}</td>
-                <td>${cty.SĐT}</td>
+                <td>${cty.SDT}</td>
                 <td>${sua_xoa}</td>
               </tr>`;
                     }
@@ -224,6 +224,14 @@
             }
         });
     }
+
+    $('#btn_logout').click(function () {
+        $('.nut-xin-chao').addClass("not-show");
+        $('#btn_logout').addClass("not-show");
+        $('#btn_dangky').removeClass("not-show");
+        $('#btn_dangnhap').removeClass("not-show");
+       
+    });
     $('#btn_khachhang').click(function () {
         list_company();
     });
@@ -272,13 +280,23 @@
                         $.post(api, data_gui_di, function (data) {
                             var json = JSON.parse(data)
                             if (json.ok == 1) {
-                                alert('dndjjd')
+                                $('.nut-xin-chao').removeClass("not-show")
+                                $('#btn_logout').removeClass("not-show")
+                                $('#btn_dangky').addClass("not-show")
+                                $('#btn_dangnhap').addClass("not-show")
+                                // NẾU QUYỀN BẰNG 1 THÌ LÀ ADMIN
+                                // NGƯỢC LẠI LÀ KHÁCH HÀNG
+                                if (json.QUYEN == 1) {
+                                    $('.nut-xin-chao').html(`XIN CHÀO ADMIN`)
+                                    $('#btn_khachhang').removeClass("not-show")
+                                } else {
+                                    $('#btn_khachhang').addClass("not-show")
+                                    $('.nut-xin-chao').html(`XIN CHÀO BẠN`)
+
+                                }
 
                             } else {
-                                if (!logined) {
-                                    $('#message11').html('Sai thông  tin đăng nhập')
-                                    return false;
-                                };
+                                alert([json.msg]);
                             }
 
                         })
@@ -291,6 +309,10 @@
     };
 
 
+    //đăng ký
+
+
+
     trang_chu();
     function trang_chu() {
         var noidung = "";
@@ -301,33 +323,27 @@
             function (data) {
                 var json = JSON.parse(data);
                 if (json.ok) {
+                    var stt = 0;
                     for (var hanghoa of json.data) {
 
-                        var muahang = `<button class="btn btn-sm btn-primary nut-mua-ngay" data-cid ="${hanghoa.MAHH}"><ion-icon name="cart-outline"></ion-icon> Mua Ngay</button>`;
+                        var muahang = `<button class="btn btn-sm btn-primary nut-mua-ngay" data-cid="${hanghoa.MAHH}""><ion-icon name="cart-outline"></ion-icon> Mua Ngay</button>`;
                         noidung +=
-                         
-                             `                    
-                     <div class="product-top">
-                        <a href="" class="product-thumb">
-                            <img src="${hanghoa.ANH}" alt="">
-                        </a>
-                        <a href="" class="buy-now " data-cid ="${hanghoa.MAHH}">Mua Ngay</a>                    
-                    </div>
-                    <div class="product-infor">
-                        <!--<a href="" class="product-cat">NAM</a>-->
-                        <a href="" class="product-name-1">${hanghoa.TEN}</a>
-                        <div class="product-price-1">${hanghoa.GIA}</div>
-                    </div>
-                    <p>${muahang}</p>         
-            ` }
-
+                            `
+<div class="book-container" style="width: 22%; height :380px;  margin: 15px; text-align: center; border: 1px solid #ccc; padding: 10px; display: inline-block; box-sizing: border-box;transition: box-shadow 0.3s;" onmouseover="this.style.boxShadow='0 0 10px rgba(0, 0, 0, 0.5)'" onmouseout="this.style.boxShadow='none';">
+        <img src="${hanghoa.ANH}" alt="Ảnh bìa sách" style="width: 150px; height:  200px; margin-bottom: 10px;">
+        <h2 style="font-size: 18px; margin-bottom: 5px;">${hanghoa.TEN}</h2>
+        <p class="book-price" style="font-weight: bold; color: #FF5733;">${hanghoa.GIA} VNĐ </p>
+ <p>${muahang}</p>
+</div> 
+`
+                    }
                 } else {
                     noidung = "Không có dữ liệu nhé !!";
                 }
                 $('.products-item').html(noidung);
-                $('.nut-mua-ngay').click(function () {                
+                $('.nut-mua-ngay').click(function () {
                     var mahang = $(this).data('cid');
-                    form_muahang(mahang , data)
+                    form_muahang(mahang, data)
                 })
                 $('.buy-now').click(function () {
                     var mahang = $(this).data('cid');
@@ -336,6 +352,14 @@
             })
     }
 
+    function getdate() {
+        var currentDate = new Date();
+        var day = currentDate.getDate();
+        var month = currentDate.getMonth() + 1; // Tháng bắt đầu từ 0, cần cộng thêm 1
+        var year = currentDate.getFullYear();
+
+        return ('' + day + '/' + month + '/' + year);
+    }
     function form_muahang(mahang, data) {
         var hh;
         var json = JSON.parse(data);
@@ -350,13 +374,18 @@
         var content =
             ` <pre>
                     CHÀO MỪNG QUÝ KHÁCH MUA HÀNG 
-                        Mã Hóa đơn : ${mahoadon}
+                    Mã Hóa đơn : ${mahoadon}
+                    Ngày       : ${getdate()}
                       
 
                     Tên sản phẩm  : ${hh.TEN}  
                     <img style="width: 170px; " src="${hh.ANH}" />
-                    Giá Tiền      : ${hh.GIA} 000 VNĐ
+                    Giá Tiền      : ${hh.GIA} VNĐ
                     Số lượng      : <input type="int" id="soluong" placeholder="Số lượng " required>
+                    Mã Kh         : <input type="int" id="MAKH" placeholder="Mã KH " required>
+                   Tên người nhận : <input type="int" id="TENKH" placeholder="Tên người nhận " required>
+                    Đia chỉ       : <input type="int" id="DIACHI" placeholder="Địa chỉ " required>
+                    Số điện thoại : <input type="int" id="GIATIEN" placeholder="Số điện thoại " required>
                     
             </pre>`
 
@@ -373,25 +402,36 @@
                     action: function () {
                         if ($('#soluong').val() != null) {
                             var data_bang_hoa_don = {
-                                action: 'CH_ADD_HOA_DON',
-                                mahoadon: mahoadon,
-                                Trangthai: 'Chờ Xác Nhận',
-                                tongtien: $('#soluong').val() * hh.GIA,
-                                sdt: $('#sdtnhan').val(),
+                                action: 'BH_THEM_DONDATHANG',
+                                SOHOADON: mahoadon,
+                                MAKH: $('#MAKH').val()
+
                             }
 
 
                             var data_bang_chi_tiet = {
-                                action: 'CH_ADD_CT_HOA_DON',
-                                mahoadon: mahoadon,
-                                mahh: mahh,
+                                action: 'BH_THEM_CHITIETDATHANG',
+                                SOHOADON: mahoadon,
+                                MAHH: mahang,
                                 soluong: $('#soluong').val(),
-                                giaban: $('#giatien').val(),
+                                giaban: hh.GIA,
 
                             }
-                            $.post(api, data_bang_hoa_don, function (data) { })
-                            $.post(api, data_bang_chi_tiet, function (data) { })
+                            var data_khachhang = {
+                                action: 'BH_THEM_KHACHHANG',
+                                MAKH: $('#MAKH').val(), 
+                                TENKH: $('#TENKH').val(),
+                                DIACHI: $('#DIACHI').val(),
+                                
+                            }
+                            $.post(api, data_khachhang, function (data) { });
 
+                    
+                            
+                           
+                            $.post(api, data_bang_hoa_don, function (data) { });
+                            
+                            $.post(api, data_bang_chi_tiet, function (data) { });
 
                         } else {
 
@@ -406,7 +446,153 @@
         });
 
     };
+
+    //Đăng ký
+    $('#btn_dangky').click(function () {
+        form_dang_ky();
+    });
+    function form_dang_ky() {
+        var content =
+            `     
+             <style>
+                  input {
+                     border: 1px solid #ccc;
+                     border-radius: 5px;
+                          }       
+             </style>
+             
+    <pre>
+    USER NAME  : <input type="text" id="tao-name" placeholder="nhập user name" required>    
+    HỌ ĐỆM     : <input type="text" id="tao-hodem" placeholder="nhập họ đệm" required>
+    TÊN        : <input type="text" id="tao-ten" placeholder="nhập tên " required>
+    PW         : <input type="text" id="tao-pw" placeholder=" nhập mật khẩu " required>
+    XÁC NHẬN PW: <input type="text" id="tao-pw2" placeholder=" xác nhận mật khẩu " required>
+    ĐỊA CHỈ    : <input type="text" id="tao-diachi" placeholder=" nhập địa chỉ " required>
+    SDT        : <input type="text" id="tao-sdt" placeholder=" nhập số điện thoại " required>
+    </pre>
+             `
+
+        var dialog_dangky = $.confirm({
+            title: 'Đăng ký tài khoản!',
+            content: content,
+            columnClass: 'medium',
+            buttons: {
+                formSubmit: {
+                    text: 'Đăng ký',
+                    btnClass: 'btn-primary',
+
+                    action: function () {
+                        var data_gui_di = {
+                            action: 'add-user',
+                            User_Name: $('#tao-name').val(),
+                            hodem: $('#tao-hodem').val(),
+                            ten: $('#tao-ten').val(),
+                            pw: $('#tao-pw').val(),
+                            pw2: $('#tao-pw').val(),
+                            diachi: $('#tao-diachi').val(),
+                            SDT: $('#tao-sdt').val()
+                        }
+
+                      
+                        $.post(api, data_gui_di, function (data) {
+                            var json = JSON.parse(data);
+                            if (json.ok) {
+                                dialog_dangky.close();
+                            } else {
+                                alert(json.msg)
+                            }
+                        })
+
+                    }
+                },
+                cancel: {},
+            },
+        });
+    };
+
+    $('#nutGioHang').click(function () {
+        list_hoa_don_dat_hang();
+    });
+
+    function list_hoa_don_dat_hang() {
+       
+        $.post(api,
+            {
+                action: 'BH_DANH_SACH_DON_DAT_HANG'
+            },
+            function (data) {
+                var json = JSON.parse(data);
+                var noidung = "";
+                if (json.ok) {
+                    noidung += `<table class="table table-hover " 
+                                style="width: 90%; margin:auto"> `;
+                    noidung +=
+                        `
+            <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>TÊN KHÁCH HÀNG</th>
+                  <th>Số hóa đơn</th>
+                  <th>Tên Mặt hàng</th>
+                  <th>Số lượng</th>
+                  <th>Đơn giá</th>
+                  <th>Ngày mua</th>
+                </tr>
+            </thead> <tbody>`
+
+                    var stt = 0;
+                    for (var hoadon of json.data) {
+                        noidung +=
+                            `.
+            <tr>
+                <td>${++stt}</td>
+                <td>${hoadon.TEN_KH}</td>
+                <td>${hoadon.SO_HD}</td>
+                <td>${hoadon.TEN_HH}</td>
+                <td>${hoadon.SL}</td>
+                 <td>${hoadon.DONGIA}</td>
+                  <td>${hoadon.NGAY_DAT}</td>
+             
+            </tr>
+           
+            `
+                    }
+                    noidung += " </tbody> </table>";
+                } else {
+                    noidung = "Không có dữ liệu nhé !!";
+                }
+
+                $.confirm({
+                    title: 'Đăng ký tài khoản!',
+                    content: noidung,
+                    columnClass: 'xlarge',
+                    buttons: {
+                        formSubmit: {
+                            text: 'Đăng ký',
+                            btnClass: 'btn-primary',
+
+                            action: function () {
+
+
+
+                            }
+                        },
+                        cancel: {},
+                    },
+                });
+
+            });
+
+       
+
+    }
+
     //MẶT HÀNG------------------------------------------------------------------------------------------------------------->
+
+
+    
+
+
 
     //    //code js here mẫu của jquery
 

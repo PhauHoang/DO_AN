@@ -11,6 +11,9 @@
     <!--<script src="asset/jquery-confirm.min.js"></script>-->
     <meta name="viewport" content="width=device-width" />
     <title>KHOI STORE</title>
+    <link rel="shortcut icon" href="">
+    <link rel="shortcut icon" href="#" />
+
     <link href="mystyle.css" rel="stylesheet" />
     <script src="mycode.js"></script>
     <!--<script src="asset/mycode.js"></script>-->
@@ -53,46 +56,40 @@
         </div>
 
         <!--<button class="btn btn-success" id="nutGioHang"> Giỏ hàng <i class="fa-solid fa-shopping-bag fa-bounce" style="color: #ffffff;"></i></button>-->
-       
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-           <!--<title>Shopping Cart</title>-->
-            <!-- Thêm thư viện Font Awesome để sử dụng biểu tượng giỏ hàng -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-            <style>
-                /* Add your CSS styles here */
-                .cart-counter {
-            position: absolute;
-            top: 5px;
-            right: 10px;
-            background-color: #ff0000;
-            color: #ffffff;
-            padding: 5px 10px;
-            border-radius: 50%;
-        }
-            </style>
-            <div id="gioHang">
-                <!-- Nội dung của bảng thông tin giỏ hàng sẽ được cập nhật ở đây -->
-                <table id="bangGioHang">
 
-                    <!-- Các dòng trong bảng giỏ hàng -->
-                </table>
-            </div>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<title>Shopping Cart</title>-->
+        <!-- Thêm thư viện Font Awesome để sử dụng biểu tượng giỏ hàng -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            /* Add your CSS styles here */
+            .cart-counter {
+                position: absolute;
+                top: 5px;
+                right: 10px;
+                background-color: #ff0000;
+                color: #ffffff;
+                padding: 5px 10px;
+                border-radius: 50%;
+            }
+        </style>
+        <div id="gioHang">
+            <!-- Nội dung của bảng thông tin giỏ hàng sẽ được cập nhật ở đây -->
+            <table id="bangGioHang">
+
+                <!-- Các dòng trong bảng giỏ hàng -->
+            </table>
+        </div>
         <!-- Nút "Giỏ hàng" -->
-        <button class="btn btn-success" id="nutGioHang"  onclick="hienThiGioHang()">Giỏ hàng <i class="fas fa-shopping-bag fa-bounce" style="color: #ffffff;"></i></button>
+        <button class="btn btn-success" id="nutGioHang">Giỏ hàng <i class="fas fa-shopping-bag fa-bounce" style="color: #ffffff;"></i></button>
 
-        <!-- Modal hiển thị thông tin giỏ hàng -->
-        <div class="modal" id="gioHangModal">
-            <!--<h2>Thông tin giỏ hàng</h2>-->
-
-            <ul id="nutGioHang"></ul>
-            <button onclick= "dongModal()">Đóng</button>
-        </div> 
-        <script>           
-        </script>
+       
         <!-- <div class="btn-group">-->
         <button type="button" class="btn btn-primary" id="btn_khachhang">Khách Hàng<i class="" style="color: #000000;"></i></button>
         <div style="text-align: right;">
+            <label class="nut-xin-chao not-show"></label>
+            <button type="button" class="btn btn-warning not-show" id="btn_logout">Đăng xuất<i class="fa-solid fa-sign-in" style="color: #fcfcfc;"></i></button>
             <button type="button" class="btn btn-primary" id="btn_dangky">Đăng ký <i class="fa-solid fa-user-plus" style="color: #fcfcfd;"></i></button>
             <button type="button" class="btn btn-primary" id="btn_dangnhap">Đăng nhập <i class="fa-solid fa-sign-in" style="color: #fcfcfc;"></i></button>
 
@@ -121,11 +118,11 @@
                             <img src="img/aokhoacnam.jpg" alt="">
                         </a>
                         <a href="" class="buy-now">Mua Ngay</a>-->
-                        <!--muan ngay-->
+                    <!--muan ngay-->
                     <!--</div>
                     <div class="product-infor">-->
-                        <!--<a href="" class="product-cat">NAM</a>-->
-                        <!--<a href="" class="product-name-1">Áo Khoác Nam</a>
+                    <!--<a href="" class="product-cat">NAM</a>-->
+                    <!--<a href="" class="product-name-1">Áo Khoác Nam</a>
                         <div class="product-price-1">299,000vnd</div>
                     </div>
                     <button class="muahang">Thêm vào giỏ hàng</button>-->
@@ -141,11 +138,11 @@
                         <img src="img/aophaonam.jpg" alt="">
                     </a>
                     <a href="" class="buy-now">Mua Ngay</a>-->
-                    <!--muan ngay-->
-                <!--</div>
-                <div class="product-infor">-->
-                    <!--<a href="" class="product-cat">NAM</a>-->
-                    <!--<a href="" class=" product-name-2">Áo Phao nam</a>
+        <!--muan ngay-->
+        <!--</div>
+        <div class="product-infor">-->
+        <!--<a href="" class="product-cat">NAM</a>-->
+        <!--<a href="" class=" product-name-2">Áo Phao nam</a>
                     <div class="product-price">499,000vnd</div>
                 </div>
                 <button class="muahang">Thêm vào giỏ hàng</button>
@@ -158,11 +155,11 @@
                         <img src="img/aopolonam.jpg" alt="">
                     </a>
                     <a href="" class="buy-now">Mua Ngay</a>-->
-                    <!--muan ngay-->
-                <!--</div>
-                <div class="product-infor">-->
-                    <!-- <a href="" class="product-cat">NAM</a>-->
-                    <!--<a href="" class="product-name">Áo polo nam</a>
+        <!--muan ngay-->
+        <!--</div>
+        <div class="product-infor">-->
+        <!-- <a href="" class="product-cat">NAM</a>-->
+        <!--<a href="" class="product-name">Áo polo nam</a>
                     <div class="product-price">250,000vnd</div>
                 </div>
                 <button class="muahang">Thêm vào giỏ hàng</button>
@@ -175,11 +172,11 @@
                         <img src="img/aopolonu.jpg" alt="">
                     </a>
                     <a href="" class="buy-now">Mua Ngay</a>-->
-                    <!--muan ngay-->
-                <!--</div>
-                <div class="product-infor">-->
-                    <!-- <a href="" class="product-cat">NỮ</a>-->
-                    <!--<a href="" class=" product-name">Áo polo nữ</a>
+        <!--muan ngay-->
+        <!--</div>
+        <div class="product-infor">-->
+        <!-- <a href="" class="product-cat">NỮ</a>-->
+        <!--<a href="" class=" product-name">Áo polo nữ</a>
                     <div class="product-price">249,000vnd</div>
                 </div>
                 <button class="muahang">Thêm vào giỏ hàng</button>
@@ -192,11 +189,11 @@
                         <img src="img/quanthethaonu.jpg" alt="">
                     </a>
                     <a href="" class="buy-now">Mua Ngay</a>-->
-                    <!--muan ngay-->
-                <!--</div>
-                <div class="product-infor">-->
-                    <!--<a href="" class="product-cat">NAM</a>-->
-                    <!--<a href="" class="product-name">Quần thể thao nữ</a>
+        <!--muan ngay-->
+        <!--</div>
+        <div class="product-infor">-->
+        <!--<a href="" class="product-cat">NAM</a>-->
+        <!--<a href="" class="product-name">Quần thể thao nữ</a>
                     <div class="product-price">250,000vnd</div>
                 </div>
                 <button class="muahang">Thêm vào giỏ hàng</button>
@@ -209,11 +206,11 @@
                         <img src="img/aotreem.jpg" alt="">
                     </a>
                     <a href="" class="buy-now">Mua Ngay</a>-->
-                    <!--muan ngay-->
-                <!--</div>
-                <div class="product-infor">-->
-                    <!--<a href="" class="product-cat">Trẻ em</a>-->
-                    <!--<a href="" class=" product-name">Áo Trẻ em</a>
+        <!--muan ngay-->
+        <!--</div>
+        <div class="product-infor">-->
+        <!--<a href="" class="product-cat">Trẻ em</a>-->
+        <!--<a href="" class=" product-name">Áo Trẻ em</a>
                     <div class="product-price">159,000vnd</div>
                 </div>
                 <button class="muahang">Thêm vào giỏ hàng</button>
@@ -226,11 +223,11 @@
                         <img src="img/quanaunam.jpg" alt="">
                     </a>
                     <a href="" class="buy-now">Mua Ngay</a>-->
-                    <!--muan ngay-->
-                <!--</div>
-                <div class="product-infor">-->
-                    <!--  <a href="" class="product-cat">NAM</a>-->
-                    <!--<a href="" class="product-name">Quần âu nam</a>
+        <!--muan ngay-->
+        <!--</div>
+        <div class="product-infor">-->
+        <!--  <a href="" class="product-cat">NAM</a>-->
+        <!--<a href="" class="product-name">Quần âu nam</a>
                     <div class="product-price">329,000vnd</div>
                 </div>
                 <button class="muahang">Thêm vào giỏ hàng</button>
@@ -243,29 +240,29 @@
                         <img src="img/bothethaonam.jpg" alt="">
                     </a>
                     <a href="" class="buy-now">Mua Ngay</a>-->
-                    <!--muan ngay-->
-                <!--</div>
-                <div class="product-infor">-->
-                    <!--  <a href="" class="product-cat">NAM</a>-->
-                    <!--<a href="" class=" product-name">Bộ thể thao nam</a>
+        <!--muan ngay-->
+        <!--</div>
+        <div class="product-infor">-->
+        <!--  <a href="" class="product-cat">NAM</a>-->
+        <!--<a href="" class=" product-name">Bộ thể thao nam</a>
                     <div class="product-price">619,000vnd</div>
                 </div>
                 <button class="muahang">Thêm vào giỏ hàng</button>
             </div>
         </li>-->
     </ul>
-    
 
 
-        <footer>
-            <div class="icon">
-                <a href="https://www.youtube.com/channel/UClsw_q4eH7wMux-RcQ9tKmA" class="link"> <i class="fa-brands fa-youtube"></i></a>
-                <a href="https://github.com/PhauHoang" class="link"><i class="fa-brands fa-github"></i></a>
-                <a href=" https://www.facebook.com/tram.thang.737" class="link"><i class="fa-brands fa-facebook"></i></a>
-                <p style="margin-top:20px">Powered by Phau Hoang </p>
-            </div>
 
-        </footer>
-    </body>
+    <footer>
+        <div class="icon">
+            <a href="https://www.youtube.com/channel/UClsw_q4eH7wMux-RcQ9tKmA" class="link"> <i class="fa-brands fa-youtube"></i></a>
+            <a href="https://github.com/PhauHoang" class="link"><i class="fa-brands fa-github"></i></a>
+            <a href=" https://www.facebook.com/tram.thang.737" class="link"><i class="fa-brands fa-facebook"></i></a>
+            <p style="margin-top:20px">Powered by Phau Hoang </p>
+        </div>
+
+    </footer>
+</body>
 
 </html>
